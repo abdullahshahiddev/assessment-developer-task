@@ -1,0 +1,131 @@
+/* Layout and card styles */
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+.shadow-card {
+  box-shadow: 0 2px 16px 0 rgba(60,60,60,0.09), 0 1.5px 6px 0 rgba(60,60,60,0.07);
+  border-radius: 1.2rem;
+}
+.p-card {
+  margin-bottom: 2rem;
+}
+
+/* Form styles */
+form.p-fluid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.form-label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.hint {
+  color: #888;
+  font-size: 0.9em;
+  margin-left: 0.25em;
+}
+.p-inputtext-lg {
+  font-size: 1.1em;
+  padding: 0.7em 1em;
+  border-radius: 0.6em;
+}
+.p-button-success {
+  background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  border-radius: 2em;
+  padding: 0.8em 2.2em;
+  font-size: 1.1em;
+}
+
+/* Message list styles */
+.message-card {
+  background: #f8f9fa;
+  border-radius: 1em;
+  padding: 1.2em 1em 1em 1em;
+  box-shadow: 0 1px 8px 0 rgba(60,60,60,0.06);
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2em;
+}
+.msg-icon {
+  font-size: 2.2em;
+  color: #43e97b;
+  margin-right: 1em;
+  margin-top: 0.3em;
+}
+.msg-content {
+  flex: 1;
+}
+.msg-header {
+  display: flex;
+  gap: 1.2em;
+  align-items: center;
+  font-size: 0.97em;
+  color: #999;
+  margin-bottom: 0.1em;
+}
+.msg-id {
+  font-weight: 700;
+  color: #38f9d7;
+}
+.msg-date {
+  font-size: 0.93em;
+}
+.msg-items {
+  margin-top: 0.5em;
+}
+.p-listbox {
+  width: 100%;
+  max-width: 350px;
+  background: #fff;
+  border-radius: 0.5em;
+  margin-top: 0.4em;
+}
+.p-message {
+  margin-bottom: 0.2em;
+}
+
+/* Paginator styles */
+.paginator-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+}
+.custom-paginator .p-paginator {
+  border-radius: 2em;
+  background: #f4f6fb;
+  box-shadow: 0 1px 6px 0 rgba(60,60,60,0.04);
+  padding: 0.5em 1em;
+}
+
+/* Margin classes */
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+.mb-3 {
+  margin-bottom: 1rem;
+}
+.mt-2 {
+  margin-top: 0.5rem;
+}
+.mt-4 {
+  margin-top: 2rem;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 1rem 0.2rem;
+  }
+  .p-card {
+    padding: 0.5rem 0.2rem;
+  }
+  .message-card {
+    flex-direction: column;
+    gap: 0.7em;
+  }
+}

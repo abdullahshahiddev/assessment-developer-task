@@ -1,0 +1,65 @@
+<div class="container">
+  <!-- Add Message Form -->
+  <p-card header="Add a New Message" styleClass="mt-4 shadow-card">
+    <form (ngSubmit)="onSubmit()" #msgForm="ngForm" class="p-fluid">
+      <div class="p-field mb-3">
+        <label for="message" class="form-label">Message</label>
+        <input pInputText id="message" name="message" [(ngModel)]="newMessage" required maxlength="100" placeholder="Type your message..." class="p-inputtext-lg" />
+      </div>
+      <div class="p-field mb-3">
+        <label for="items" class="form-label">Items <span class="hint">(comma separated)</span></label>
+        <input pInputText id="items" name="items" [(ngModel)]="newItems" required placeholder="e.g. 1, 2, 3" class="p-inputtext-lg" />
+      </div>
+      <button pButton type="submit" label="Add Message" class="p-button-rounded p-button-success" [disabled]="!msgForm.form.valid"></button>
+    </form>
+  </p-card>
+
+  <!-- User Messages Section -->
+  <p-card header="User Messages" styleClass="mt-4 shadow-card">
+    <ng-container *ngIf="messages.length === 0">
+      <p-message severity="info" text="No messages found. Add your first message!"></p-message>
+    </ng-container>
+    <ng-container *ngIf="messages.length > 0">
+      <div *ngFor="let msg of messages" class="message-card mb-4">
+        <div class="d-flex align-items-start">
+          <div class="msg-icon">
+            <i class="pi pi-comments"></i>
+          </div>
+          <div class="msg-content">
+            <div class="msg-header">
+              <span class="msg-id">#{{msg.id}}</span>
+              <span class="msg-date">{{(msg.createdAt | date:'medium') || 'no date'}}</span>
+            </div>
+
+            <!-- Show Message in PrimeNG p-message component -->
+            <p-message *ngIf="msg.message" severity="success" [text]="msg.message"></p-message>
+
+            <div class="msg-items">
+              <label>Items:</label>
+              <!-- Display items in PrimeNG p-listbox component -->
+              <p-listbox 
+                [options]="getListboxOptions(msg.items)" 
+                optionLabel="label" 
+                styleClass="mt-2" 
+                [multiple]="true" 
+                [disabled]="true">
+              </p-listbox>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="paginator-wrap">
+        <p-paginator
+          [rows]="pageSize"
+          [totalRecords]="total"
+          [first]="page * pageSize"
+          [rowsPerPageOptions]="[3, 5, 10]"
+          (onPageChange)="onPageChange($event)"
+          styleClass="custom-paginator"
+        ></p-paginator>
+      </div>
+    </ng-container>
+  </p-card>
+</div>
